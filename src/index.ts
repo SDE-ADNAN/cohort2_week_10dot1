@@ -27,4 +27,4 @@ async function createUsersTable() {
     }
 }
 
-createUsersTable();
+// createUsersTable();
