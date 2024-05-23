@@ -41,4 +41,22 @@ function createUsersTable() {
         }
     });
 }
-createUsersTable();
+// createUsersTable();
+// async function to insert data into a table
+function insertData() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            yield client.connect();
+            const insertQuery = `INSERT INTO users (username, email, password) VALUES ('username2','user3@example.com','somepassword')`;
+            const res = yield client.query(insertQuery);
+            console.log('Insertion success:', res);
+        }
+        catch (err) {
+            console.error('Error during the insertion:', err);
+        }
+        finally {
+            yield client.end();
+        }
+    });
+}
+insertData();

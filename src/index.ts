@@ -28,3 +28,20 @@ async function createUsersTable() {
 }
 
 // createUsersTable();
+
+
+// async function to insert data into a table
+async function insertData(){
+    try {
+        await client.connect();
+        const insertQuery =`INSERT INTO users (username, email, password) VALUES ('username2','user3@example.com','somepassword')`;
+        const res = await client.query(insertQuery);
+        console.log('Insertion success:' , res); 
+    }catch(err){
+        console.error('Error during the insertion:' , err)
+    }finally{
+        await client.end();
+    }
+}
+
+insertData()
